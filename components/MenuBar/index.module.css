@@ -7,7 +7,7 @@
         @apply flex items-center justify-center cursor-pointer px-2.5 py-2.5 rounded-md transition-all;
 
         &:hover, 
-        &:active{
+        &.active{
             background-color: theme("colors.text2");
         }
         .icon{

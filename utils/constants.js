@@ -7,3 +7,11 @@ export const colors = {
     Indigo : "#4B369D",
     Violet : "#70369D"
 }
+
+export const menuItems = {
+    Pencil : "Pencil",
+    Eraser : "Eraser",
+    Undo : "Undo",
+    Redo : "Redo",
+    Download : "Download",
+}
