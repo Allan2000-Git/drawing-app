@@ -1,5 +1,5 @@
 .menuWrapper{
-    @apply absolute flex justify-between px-5 py-3 left-1/2 top-10 w-1/4 bg-mainbg rounded-md translate-x-[-50%];
+    @apply absolute flex justify-between px-5 py-2 left-1/2 top-7 w-1/4 bg-mainbg rounded-md translate-x-[-50%];
     border: 1.5px solid theme('colors.border1');
     box-shadow: theme('colors.shadow1');
 
