@@ -1,0 +1,18 @@
+.menuWrapper{
+    @apply absolute flex justify-between px-5 py-3 left-1/2 top-10 w-1/4 bg-mainbg rounded-md translate-x-[-50%];
+    border: 1.5px solid theme('colors.border1');
+    box-shadow: theme('colors.shadow1');
+
+    .iconWrapper{
+        @apply flex items-center justify-center cursor-pointer px-2.5 py-2.5 rounded-md transition-all;
+
+        &:hover, 
+        &:active{
+            background-color: theme("colors.text2");
+        }
+        .icon{
+            color: theme("colors.text1");
+            font-size: 20px;
+        }
+    }
+}
