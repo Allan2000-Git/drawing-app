@@ -5,7 +5,9 @@ export const colors = {
     Green : "#79C314",
     Blue : "#487DE7",
     Indigo : "#4B369D",
-    Violet : "#70369D"
+    Violet : "#70369D",
+    BlacK : "#000",
+    White : "#FFF"
 }
 
 export const menuItems = {

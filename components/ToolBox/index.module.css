@@ -1,5 +1,5 @@
 .toolBoxWrapper{
-    @apply absolute flex flex-col justify-between px-5 py-3 top-[50%] left-7 w-1/5 bg-mainbg rounded-md -translate-y-1/2;
+    @apply absolute flex flex-col justify-between px-5 py-3 top-[50%] left-7 max-w-[20%] bg-mainbg rounded-md -translate-y-1/2;
     border: 1.5px solid theme('colors.border1');
     box-shadow: theme('colors.shadow1');
 
@@ -10,12 +10,13 @@
         }
 
         .colorWrapper{
-            @apply flex justify-between flex-wrap mt-4 mb-7;
+            @apply flex justify-between flex-wrap gap-3 mt-4 mb-7;
         
             .color{
                 @apply w-6 h-6 cursor-pointer rounded-sm;
 
-                &:hover, &:active{
+                &:hover, 
+                &.active{
                     border: 2px solid black;
                 }
             }
