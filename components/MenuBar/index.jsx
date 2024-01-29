@@ -33,13 +33,13 @@ const MenuBar = () => {
             })} onClick={() => handleActiveMenuItemClick(menuItems.Eraser)}>
                 <FaEraser className={styles.icon} />
             </div>
-            <div className={styles.iconWrapper}>
+            <div className={styles.iconWrapper} onClick={() => handleActionMenuItemClick(menuItems.Undo)}>
                 <FaUndoAlt className={styles.icon} />
             </div>
-            <div className={styles.iconWrapper}>
+            <div className={styles.iconWrapper} onClick={() => handleActionMenuItemClick(menuItems.Redo)}>
                 <FaRedoAlt className={styles.icon} />
             </div>
-            <div className={styles.iconWrapper}>
+            <div className={styles.iconWrapper} onClick={() => handleActionMenuItemClick(menuItems.Download)}>
                 <FaDownload className={styles.icon} />
             </div>
         </div>

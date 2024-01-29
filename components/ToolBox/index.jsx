@@ -76,7 +76,7 @@ const ToolBox = () => {
                 showBrush && 
                 <div className={styles.toolItem}>
                     <p className={styles.toolBoxHeading}>Brush Size {activeMenuItem} </p>
-                    <input onChange={handleBrushSize} type="range" min={1} max={10} step={1} className="mt-4" />
+                    <input value={brushSize} onChange={handleBrushSize} type="range" min={1} max={10} step={1} className="mt-4" />
                 </div>
             }
         </div>

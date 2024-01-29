@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
     activeMenuItem: menuItems.Pencil,
-    actionMenuItem: null
+    actionMenuItem: "",
 }
 
 export const menuSlice = createSlice({
