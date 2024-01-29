@@ -1,5 +1,6 @@
 "use client"
 
+import { actionMenuItemClick } from '@/slice/menuBarSlice';
 import { menuItems } from '@/utils/constants';
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,20 +9,26 @@ const MainBoard = () => {
     const canvasRef = useRef(null);
     const shouldDraw = useRef(false);
 
-    const {activeMenuItem, actionMenuItemClick} = useSelector(state => state.menu);
+    const {activeMenuItem, actionMenuItem} = useSelector(state => state.menu);
     const {strokeColor, brushSize} = useSelector(state => state.toolbox[activeMenuItem]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if(!canvasRef.current) return;
 
         const ctx = canvasRef.current.getContext("2d");
 
-        if(actionMenuItemClick === menuItems.Download){
-            const URL = ctx.toDataURL();
-            console.log(URL);
+        if(actionMenuItem === menuItems.Download){
+            const URL = canvasRef.current.toDataURL();
+            const link = document.createElement("a");
+            link.href = URL;
+            link.download = "draw.png";
+            link.click();
         }
 
-    },[actionMenuItemClick])
+        dispatch(actionMenuItemClick(null));
+
+    },[actionMenuItem])
 
     // runs after paint
     useEffect(() => {
@@ -43,6 +50,7 @@ const MainBoard = () => {
 
         canvasRef.current.width = window.innerWidth;
         canvasRef.current.height = window.innerHeight;
+        canvasRef.current.style.backgroundColor = "white";
 
         // drawing on canvas
         const startDraw = (x, y) => {
@@ -82,9 +90,6 @@ const MainBoard = () => {
         }
 
     },[]);
-
-    console.log(actionMenuItemClick);
-
 
     return (
         <>

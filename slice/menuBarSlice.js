@@ -3,10 +3,10 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
     activeMenuItem: menuItems.Pencil,
-    actionMenuItem: "",
+    actionMenuItem: null,
 }
 
-export const menuSlice = createSlice({
+export const menuBarSlice = createSlice({
     name: 'menu',
     initialState,
     reducers:{
@@ -19,6 +19,6 @@ export const menuSlice = createSlice({
     }
 })
 
-export const {activeMenuItemClick, actionMenuItemClick} = menuSlice.actions
+export const {activeMenuItemClick, actionMenuItemClick} = menuBarSlice.actions
 
-export default menuSlice.reducer
+export default menuBarSlice.reducer
