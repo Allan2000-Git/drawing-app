@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const MainBoard = () => {
     const canvasRef = useRef(null);
     const shouldDraw = useRef(false);
+    const historyArray = useRef([]);
+    const pointer = useRef(0);
 
     const {activeMenuItem, actionMenuItem} = useSelector(state => state.menu);
     const {strokeColor, brushSize} = useSelector(state => state.toolbox[activeMenuItem]);
@@ -24,6 +26,18 @@ const MainBoard = () => {
             link.href = URL;
             link.download = "draw.png";
             link.click();
+        } else if(actionMenuItem === menuItems.Undo){
+            if(pointer.current > 0){
+                pointer.current -= 1;
+            }
+            const image = historyArray.current[pointer.current];
+            ctx.putImageData(image,0,0);
+        } else if(actionMenuItem === menuItems.Redo){
+            if(pointer.current < historyArray.current.length - 1){
+                pointer.current += 1;
+            }
+            const image = historyArray.current[pointer.current];
+            ctx.putImageData(image,0,0);
         }
 
         dispatch(actionMenuItemClick(null));
@@ -70,6 +84,9 @@ const MainBoard = () => {
 
         const stopPainting = () => {
             shouldDraw.current = false;
+            const image = ctx.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height);
+            historyArray.current.push(image);
+            pointer.current = historyArray.current.length-1;
         }
 
         const sketch = (event) => {
